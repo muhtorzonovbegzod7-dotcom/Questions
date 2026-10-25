@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Business & Management Tests</title>
+  <meta name="description" content="Онлайн-тесты по менеджменту и организационной структуре">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="shell">
+    <section class="card" id="startCard">
+      <div class="eyebrow">ONLINE ASSESSMENT</div>
+      <h1>Business & Management Tests</h1>
+      <p class="lead">Введите данные студента, выберите тест и отправьте ответы один раз.</p>
+
+      <div id="configWarning" class="warning hidden">
+        Сайт ещё не подключён к защищённому backend. Укажите BACKEND_URL в <code>config.js</code>.
+      </div>
+
+      <label>ФИО студента
+        <input id="studentName" type="text" maxlength="120" autocomplete="name" placeholder="Например: Иван Иванов">
+      </label>
+
+      <label>Student ID
+        <input id="studentId" type="text" maxlength="60" autocomplete="off" placeholder="Например: 25-07-123">
+      </label>
+
+      <label>Тест
+        <select id="testSelect"><option>Загрузка...</option></select>
+      </label>
+
+      <button id="startBtn" class="primary">Начать тест</button>
+      <p class="fine">После успешной отправки результат фиксируется на сервере. Повторная отправка того же Student ID для этого теста блокируется.</p>
+    </section>
+
+    <section class="card hidden" id="quizCard">
+      <div class="quizTop">
+        <div>
+          <div class="eyebrow">TEST IN PROGRESS</div>
+          <h2 id="quizTitle"></h2>
+        </div>
+        <div id="progress" class="progress"></div>
+      </div>
+      <form id="quizForm"></form>
+      <button id="submitBtn" class="primary">Отправить ответы</button>
+    </section>
+
+    <section class="card hidden" id="resultCard">
+      <div class="eyebrow">SUBMITTED</div>
+      <h2>Результат зафиксирован</h2>
+      <div class="score" id="score"></div>
+      <p id="resultMeta"></p>
+      <div id="review"></div>
+      <p class="fine">Эта страница показывает результат, полученный от сервера. Клиент не рассчитывает и не сохраняет итоговую оценку.</p>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
